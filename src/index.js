@@ -37,11 +37,11 @@ function checksCreateTodosUserAvailability(request, response, next) {
 }
 
 function checksTodoExists(request, response, next) {
-    const { username } = request.headers; // ok
-    const { id } = request.params; // ok
+    const { username } = request.headers;
+    const { id } = request.params;
 
     if (!uuidIsValid(id))
-        return response.status(400).json({ error: "Id isn't an uuid valid" });
+        return response.status(400).json({ error: "Id is not an uuid valid" });
 
     const user = users.find((user) => user.username === username);
     if (!user) 
